@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Helpers\" />
+    <Folder Include="Model\Basket\" />
+    <Folder Include="Model\Customer\" />
+    <Folder Include="Model\Employee\" />
+  </ItemGroup>
+ 
+</Project>

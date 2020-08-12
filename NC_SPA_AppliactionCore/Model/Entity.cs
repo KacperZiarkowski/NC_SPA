@@ -2,10 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using System.Text;
-using NC_SPA_AppliactionCore.Models.Abstract;
+using eShop_ApplicationCore.Model.Abstract;
 
-namespace NC_SPA_AppliactionCore.Models
+namespace eShop_ApplicationCore.Model
 {
     public class Entity : IEntity
     {
@@ -24,10 +23,22 @@ namespace NC_SPA_AppliactionCore.Models
             var entityProperties = GetEntityProperties(source.GetType());
             foreach (PropertyInfo propertyInfo in entityProperties)
             {
+                if (SetterExists(propertyInfo) &&
+                    IsValueChanged(source,propertyInfo))
+                {
+                    propertyInfo.SetValue(this, propertyInfo.GetValue(source));
+                }
                 
             }
-
+            return this;
         }
+
+
+        private static bool SetterExists(PropertyInfo propertyInfo)
+        {
+            return propertyInfo.SetMethod != null;
+        }
+
 
         private static PropertyInfo[] GetEntityProperties(Type type)
         {
@@ -39,6 +50,23 @@ namespace NC_SPA_AppliactionCore.Models
                         p.PropertyType.GetGenericTypeDefinition() == typeof(ICollection<>)))
                     .ToArray();
         }
+
+
+        private bool IsValueChanged<T>(T source, PropertyInfo propertyInfo) where T : IEntity
+        {
+            var sourceValue = propertyInfo.GetValue(source);
+            var targetValue = propertyInfo.GetValue(this);
+
+            if (targetValue == null)
+            {
+                return sourceValue != null;
+            }
+
+            return !targetValue.Equals(sourceValue);
+        }
+
     }
+
+
 
 }

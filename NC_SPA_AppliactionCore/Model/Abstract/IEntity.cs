@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
-namespace NC_SPA_AppliactionCore.Models.Abstract
+namespace eShop_ApplicationCore.Model.Abstract
 {
     public interface IEntity
     {
