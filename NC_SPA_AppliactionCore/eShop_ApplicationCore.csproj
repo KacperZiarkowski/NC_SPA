@@ -6,9 +6,8 @@
 
   <ItemGroup>
     <Folder Include="Helpers\" />
-    <Folder Include="Model\Basket\" />
-    <Folder Include="Model\Customer\" />
     <Folder Include="Model\Employee\" />
+    <Folder Include="Model\Order\" />
   </ItemGroup>
  
 </Project>

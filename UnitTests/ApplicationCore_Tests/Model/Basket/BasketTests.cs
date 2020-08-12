@@ -1,0 +1,21 @@
+﻿using NUnit.Framework;
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+
+namespace UnitTests.ApplicationCore_Tests.Model.Basket
+{
+    [TestFixture]
+    class BasketTests
+    {
+        [Test]
+        public void CreteNewEmptyBasket_Success()
+        {
+            var basket = new eShop_ApplicationCore.Model.Basket.Basket();
+            Assert.IsNotNull(basket);
+        }
+
+
+    }
+}

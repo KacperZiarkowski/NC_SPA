@@ -9,6 +9,5 @@ namespace eShop_ApplicationCore.Model.Abstract
         DateTime? CreatedDate { get; set; }
         DateTime? ModifiedDate { get; set; }
 
-        IEntity UpdateFromEntity(IEntity source);
     }
 }
