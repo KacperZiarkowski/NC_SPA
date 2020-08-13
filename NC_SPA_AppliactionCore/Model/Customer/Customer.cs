@@ -20,10 +20,7 @@ namespace eShop_ApplicationCore.Model.Customer
             base.PhoneNumber = phoneNumber;
         }
 
-        public Adress {
-            get;
-            set;
-        }
+        public Address DeliveryAddress { get; set; }
 
 
 

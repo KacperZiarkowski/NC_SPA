@@ -6,7 +6,6 @@
 
   <ItemGroup>
     <Folder Include="Helpers\" />
-    <Folder Include="Model\Employee\" />
     <Folder Include="Model\Order\" />
   </ItemGroup>
  
