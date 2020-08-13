@@ -7,6 +7,11 @@ namespace eShop_ApplicationCore.Model.Employee
 {
     public class StoreManager : Person
     {
-        public virtual ICollection<Employee> Subordinates { get; set; }
+        public StoreManager()
+        {
+            
+        }
+
+        public virtual ICollection<Employee> ManagerSubordinates { get; set; }
     }
 }
