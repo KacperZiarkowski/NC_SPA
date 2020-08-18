@@ -5,24 +5,13 @@ using eShop_ApplicationCore.Model.Abstract;
 
 namespace eShop_ApplicationCore.Model.Customer
 {
-    public class Customer : Person
+    public class Customer : IPerson
     {
-        public Customer(
-            string firstName,
-            string lastName,
-            string email,
-            string phoneNumber
-            )
-        {
-            base.FirstName = firstName;
-            base.LastName = lastName;
-            base.Email = email;
-            base.PhoneNumber = phoneNumber;
-        }
-
         public Address DeliveryAddress { get; set; }
 
-
-
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string Email { get; set; }
+        public string PhoneNumber { get; set; }
     }
 }
