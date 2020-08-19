@@ -6,6 +6,6 @@ namespace eShop_ApplicationCore.Model.Order
 {
     public class OrderItem : Entity
     {
-
+        public 
     }
 }
