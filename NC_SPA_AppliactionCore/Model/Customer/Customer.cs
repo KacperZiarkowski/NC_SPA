@@ -5,13 +5,19 @@ using eShop_ApplicationCore.Model.Abstract;
 
 namespace eShop_ApplicationCore.Model.Customer
 {
-    public class Customer : IPerson
+    public class Customer : Entity, IPerson
     {
-        public Address DeliveryAddress { get; set; }
+        private Customer()
+        {
+            // required by EF
+        }
 
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public string Email { get; set; }
-        public string PhoneNumber { get; set; }
+        public string CustomerIdentity { get; private set; }
+        public Address DeliveryAddress { get; private set; }
+
+        public string FirstName { get; private set; }
+        public string LastName { get; private set; }
+        public string Email { get; private set; }
+        public string PhoneNumber { get; private set; }
     }
 }

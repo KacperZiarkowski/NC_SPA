@@ -7,12 +7,16 @@ namespace eShop_ApplicationCore.Model.Employee
 {
     public class EmployeeManager : Employee
     {
+        public EmployeeManager()
+        {
+            
+        }
         public EmployeeManager(
             string firstName,
             string lastName,
-            string email,
+            string email,                                                               
             string phoneNumber
-        ): base(firstName,lastName,email,phoneNumber)
+        )
         {
             FirstName = firstName;
             LastName = lastName;

@@ -2,9 +2,9 @@
 {
     public interface IPerson
     {
-        string FirstName { get; set; }
-        string LastName { get; set; }
-        string Email { get; set; }
-        string PhoneNumber { get; set; }
+        string FirstName { get; }
+        string LastName { get; }
+        string Email { get; }
+        string PhoneNumber { get; }
     }
 }

@@ -10,7 +10,7 @@ namespace eShop_ApplicationCore.Model
     {
         public int Id { get; set; }
         public string CreatedBy { get; set; }
-        public DateTime? CreatedDate { get; set; }
+        public DateTime? CreatedDate { get; set; } = DateTime.Now;
         public DateTime? ModifiedDate { get; set; }
 
         public virtual IEntity UpdateFromEntity(IEntity source)
