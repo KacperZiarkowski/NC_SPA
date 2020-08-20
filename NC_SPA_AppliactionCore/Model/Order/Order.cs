@@ -9,7 +9,7 @@ namespace eShop_ApplicationCore.Model.Order
     {
         public Order(Customer.Customer customer, List<OrderItem> orderItems, Address? shipToAddress)
         {
-            BuyerId = customer.CustomerIdentity;
+            BuyerId = customer.CustomerId;
             _orderItems = orderItems;
             ShippingAddress = shipToAddress ?? customer.DeliveryAddress;
         }

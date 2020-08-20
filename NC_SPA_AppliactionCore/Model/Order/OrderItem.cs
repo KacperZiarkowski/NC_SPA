@@ -1,11 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace eShop_ApplicationCore.Model.Order
 {
-    public class OrderItem : Entity
+    public class OrderItem :Entity
     {
-        public 
+        public virtual Product.Product OrderedProduct { get; private set; }
+
+        public int Quantity { get; private set; }
+
+        [ForeignKey("ProductId")]
+        public int ProductId { get; private set; }
     }
 }

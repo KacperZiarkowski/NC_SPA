@@ -12,7 +12,7 @@ namespace eShop_ApplicationCore.Model.Customer
             // required by EF
         }
 
-        public string CustomerIdentity { get; private set; }
+        public string CustomerId { get; private set; }
         public Address DeliveryAddress { get; private set; }
 
         public string FirstName { get; private set; }
