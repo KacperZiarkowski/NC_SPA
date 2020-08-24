@@ -8,10 +8,11 @@ namespace eShop_ApplicationCore.Model.Order
     public partial class Order : Entity
     
     {
-        public Order(string customerId, List<OrderItem> orderItems)
+        public Order(string customerId, List<OrderItem> orderItems, Address shippingAddress)
         {
             BuyerId = customerId;
             _orderItems = orderItems;
+            ShippingAddress = shippingAddress;
         }
 
         [ForeignKey("BuyerId")]

@@ -12,7 +12,7 @@ namespace UnitTests.ApplicationCore_Tests.Model.Basket
         [Test]
         public void CreteNewEmptyBasket_IsNotNul()
         {
-            var basket = new eShop_ApplicationCore.Model.Basket.Basket();
+            var basket = new eShop_ApplicationCore.Model.Basket.Basket("1234D");
             Assert.IsNotNull(basket);
         }
 

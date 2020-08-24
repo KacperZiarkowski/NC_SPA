@@ -7,5 +7,7 @@ namespace eShop_ApplicationCore.Model.Media
 {
     public class Picture : IMedia
     {
+        public string FileName { get; }
+        public string MediaUrl { get; }
     }
 }
