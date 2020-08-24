@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
 namespace eShop_ApplicationCore.Model.Order
@@ -7,13 +8,13 @@ namespace eShop_ApplicationCore.Model.Order
     public partial class Order : Entity
     
     {
-        public Order(Customer.Customer customer, List<OrderItem> orderItems, Address? shipToAddress)
+        public Order(string customerId, List<OrderItem> orderItems)
         {
-            BuyerId = customer.CustomerId;
+            BuyerId = customerId;
             _orderItems = orderItems;
-            ShippingAddress = shipToAddress ?? customer.DeliveryAddress;
         }
 
+        [ForeignKey("BuyerId")]
         public string BuyerId { get; private set; }
         public Address ShippingAddress{ get; private set; }
 

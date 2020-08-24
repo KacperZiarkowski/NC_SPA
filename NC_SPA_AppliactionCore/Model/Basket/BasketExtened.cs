@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Text;
 
-namespace eShop_ApplicationCore.Model.Order
+namespace eShop_ApplicationCore.Model.Basket
 {
-    public partial class Order 
+    public partial class Basket 
     {
         public decimal TotalCost()
         {
