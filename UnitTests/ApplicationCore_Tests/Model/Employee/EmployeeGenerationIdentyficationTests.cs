@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Reflection;
 using System.Text;
-using eShop_ApplicationCore.Model.Abstract;
+using eShop_ApplicationCore.Model.Interface;
 using eShop_ApplicationCore.Model.Employee;
 using NUnit.Framework;
 

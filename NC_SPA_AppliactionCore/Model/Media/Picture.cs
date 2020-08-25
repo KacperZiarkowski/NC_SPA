@@ -1,7 +1,8 @@
-﻿using eShop_ApplicationCore.Model.Abstract;
+﻿
 using System;
 using System.Collections.Generic;
 using System.Text;
+using eShop_ApplicationCore.Model.Interface;
 
 namespace eShop_ApplicationCore.Model.Media
 {

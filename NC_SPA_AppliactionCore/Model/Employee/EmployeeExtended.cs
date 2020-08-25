@@ -8,7 +8,9 @@ namespace eShop_ApplicationCore.Model.Employee
     public partial class Employee
     {
 
-        public void GenerateIdentification(string firstName, string lastName)
+        public void GenerateIdentification(
+            string firstName, 
+            string lastName)
         {
             if (lastName.Length <= 2)
             {

@@ -2,38 +2,21 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using eShop_ApplicationCore.Model.Abstract;
+using eShop_ApplicationCore.Model.Interface;
 
 namespace eShop_ApplicationCore.Model
 {
     public class Entity : IEntity
     {
         public int Id { get; set; }
+
         public string CreatedBy { get; set; }
+
         public DateTime? CreatedDate { get; set; } = DateTime.Now;
+
         public DateTime? ModifiedDate { get; set; }
 
-        public virtual IEntity UpdateFromEntity(IEntity source)
-        {
-            if (source == null)
-            {
-                return this;
-            }
-
-            var entityProperties = GetEntityProperties(source.GetType());
-            foreach (PropertyInfo propertyInfo in entityProperties)
-            {
-                if (SetterExists(propertyInfo) &&
-                    IsValueChanged(source,propertyInfo))
-                {
-                    propertyInfo.SetValue(this, propertyInfo.GetValue(source));
-                }
-                
-            }
-            return this;
-        }
-
-
+        
         private static bool SetterExists(PropertyInfo propertyInfo)
         {
             return propertyInfo.SetMethod != null;
@@ -65,8 +48,26 @@ namespace eShop_ApplicationCore.Model
             return !targetValue.Equals(sourceValue);
         }
 
+
+        public virtual IEntity UpdateFromEntity(IEntity source)
+        {
+            if (source == null)
+            {
+                return this;
+            }
+
+            var entityProperties = GetEntityProperties(source.GetType());
+            foreach (PropertyInfo propertyInfo in entityProperties)
+            {
+                if (SetterExists(propertyInfo) &&
+                    IsValueChanged(source, propertyInfo))
+                {
+                    propertyInfo.SetValue(this, propertyInfo.GetValue(source));
+                }
+
+            }
+            return this;
+        }
+
     }
-
-
-
 }

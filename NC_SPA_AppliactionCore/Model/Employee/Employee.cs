@@ -1,4 +1,4 @@
-﻿using eShop_ApplicationCore.Model.Abstract;
+﻿using eShop_ApplicationCore.Model.Interface;
 using System;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
@@ -28,10 +28,10 @@ namespace eShop_ApplicationCore.Model.Employee
         }
 
         private string _firstName;
-
         private string _lastName;
 
         public string Email { get; set; }
+
         public string PhoneNumber { get; set; }
 
         public string EmployeeIdentifier { get; set; }

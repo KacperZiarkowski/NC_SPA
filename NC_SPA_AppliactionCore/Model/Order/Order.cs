@@ -8,7 +8,10 @@ namespace eShop_ApplicationCore.Model.Order
     public partial class Order : Entity
     
     {
-        public Order(string customerId, List<OrderItem> orderItems, Address shippingAddress)
+        public Order(
+            string customerId, 
+            List<OrderItem> orderItems, 
+            Address shippingAddress)
         {
             BuyerId = customerId;
             _orderItems = orderItems;
@@ -17,6 +20,7 @@ namespace eShop_ApplicationCore.Model.Order
 
         [ForeignKey("BuyerId")]
         public string BuyerId { get; private set; }
+
         public Address ShippingAddress{ get; private set; }
 
         private readonly List<OrderItem> _orderItems;
