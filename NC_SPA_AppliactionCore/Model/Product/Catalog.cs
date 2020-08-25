@@ -14,5 +14,8 @@ namespace eShop_ApplicationCore.Model.Product
         public DateTime? EffectiveFrom { get; private set; }
 
         public DateTime? EffectiveTo { get; private set; }
+
+        public decimal PriceIncrease { get; private set; }
+
     }
 }
