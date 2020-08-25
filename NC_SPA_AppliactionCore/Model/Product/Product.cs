@@ -16,7 +16,6 @@ namespace eShop_ApplicationCore.Model.Product
         public int CategoryId { get; private set; }
         public string Description { get; private set; }
         public string ImageUrl { get; private set; }
-        public virtual ICollection<IMedia> Media { get; private set; }
 
     }
 }

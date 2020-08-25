@@ -5,9 +5,9 @@ using eShop_ApplicationCore.Model.Abstract;
 
 namespace eShop_ApplicationCore.Model.Product
 {
-    public class Catalog : IProduct
+    public class Catalog : Entity, IProduct
     {
-        public string Name { get; }
-        public string Description { get; }
+        public string Name { get; private set; }
+        public string Description { get; private set; }
     }
 }
