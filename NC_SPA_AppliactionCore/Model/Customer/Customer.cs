@@ -7,12 +7,8 @@ namespace eShop_ApplicationCore.Model.Customer
 {
     public class Customer : Entity, IPerson
     {
-        private Customer()
-        {
-            // required by EF
-        }
-
-        public string CustomerId { get; private set; }
+        
+        public Guid CustomerGuid { get; private set; }
 
         public Address DeliveryAddress { get; private set; }
 

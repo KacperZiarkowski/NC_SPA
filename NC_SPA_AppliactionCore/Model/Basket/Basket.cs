@@ -8,13 +8,15 @@ namespace eShop_ApplicationCore.Model.Basket
 {
     public partial class Basket : Entity
     {
-        public Basket(string buyerId)
+        public Basket(Guid buyerGuid)
         {
-            BuyerId = buyerId;
+            BuyerGuid = buyerGuid;
         }
 
-        public string BuyerId { get; private set; }
+        public Guid BuyerGuid { get; set; }
+
         private readonly List<BasketItem> _items = new List<BasketItem>();
+
         public IReadOnlyCollection<BasketItem> Items => _items.AsReadOnly();
     }
 }

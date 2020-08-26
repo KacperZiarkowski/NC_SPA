@@ -6,9 +6,9 @@ using eShop_ApplicationCore.Model.Interface;
 
 namespace eShop_ApplicationCore.Model.Media
 {
-    public class Picture : IMedia
+    public class Picture : Entity, IMedia
     {
-        public string FileName { get; }
-        public string MediaUrl { get; }
+        public string FileName { get; set; }
+        public string MediaUrl { get; set; }
     }
 }

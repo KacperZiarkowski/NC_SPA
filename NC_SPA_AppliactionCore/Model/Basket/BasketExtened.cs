@@ -9,33 +9,37 @@ namespace eShop_ApplicationCore.Model.Basket
 {
     public partial class Basket
     {
-        private decimal _totalCost;
-        [NotMapped] 
-        public decimal TotalCost
-        {
-            get => this._totalCost;
-            private set => RecalculateTotalPrice();
-        }
-
-
-        public void RemoveAllItems()
+        
+        public void RemoveAllProducts()
         {
             _items.RemoveAll(bi => bi != null);
         }
 
 
-        private void RecalculateTotalPrice()
+        public decimal TotalCost()
         {
-            var total = 0m;
+            var sum = 0m;
             foreach (var item in _items)
             {
-                total += item.Price * item.Quantity;
+                sum += item.Price * item.Quantity;
             }
-            _totalCost = total;
+            return sum;
         }
 
 
-        public void AddItem(
+        public void RemoveSingleProduct(int productId)
+        {
+            var existedBasketItem = Items.FirstOrDefault(bi => bi.ProductId == productId && bi.Quantity > 1);
+            if (existedBasketItem != null)
+            {
+                existedBasketItem.Quantity -= 1;
+                return;
+            }
+            _items.RemoveAll(bi => bi.ProductId == productId);
+        }
+
+        
+        public void AddProduct(
             int productId,
             decimal price,
             int quantity = 1)
@@ -50,12 +54,12 @@ namespace eShop_ApplicationCore.Model.Basket
                         BasketId = this.Id
                     }
                 );
-                RecalculateTotalPrice();
+              
                 return;
             }
             var existingItem = Items.FirstOrDefault(i => i.ProductId == productId);
+            
             existingItem.Quantity += quantity;
-            RecalculateTotalPrice();
         }
     }
 }

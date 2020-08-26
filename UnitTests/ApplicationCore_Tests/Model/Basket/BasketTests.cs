@@ -11,7 +11,7 @@ namespace UnitTests.ApplicationCore_Tests.Model.Basket
     [TestFixture]
     class BasketTests
     {
-        private const string BuyerId = "1234D";
+        private static readonly Guid BuyerId = Guid.NewGuid();
 
         private eShop_ApplicationCore.Model.Basket.Basket _testBasket =
             new eShop_ApplicationCore.Model.Basket.Basket(BuyerId);
@@ -33,7 +33,7 @@ namespace UnitTests.ApplicationCore_Tests.Model.Basket
         {
             var basket = new eShop_ApplicationCore.Model.Basket.Basket(BuyerId);
 
-            basket.AddItem(productId, price);
+            basket.AddProduct(productId, price);
 
             Assert.AreEqual(result, basket.Items.Count);
         }
@@ -45,8 +45,8 @@ namespace UnitTests.ApplicationCore_Tests.Model.Basket
             decimal price,
             int baseQuantity)
         {
-            _testBasket.AddItem(productId, price);
-            _testBasket.AddItem(1, 23);
+            _testBasket.AddProduct(productId, price);
+            _testBasket.AddProduct(1, 23);
 
             var resultItem = _testBasket.Items.First(i => i.ProductId == productId);
 
@@ -60,13 +60,13 @@ namespace UnitTests.ApplicationCore_Tests.Model.Basket
             decimal price,
             int quantity)
         {
-            _testBasket.AddItem(productId, price, quantity);
-            _testBasket.AddItem(productId, price, quantity);
-            _testBasket.AddItem(2, 2, 5);
+            _testBasket.AddProduct(productId, price, quantity);
+            _testBasket.AddProduct(productId, price, quantity);
+            _testBasket.AddProduct(2, 2, 5);
 
-            var totalPriceFormula = ((price * quantity) * 2) + 2 * 5;
+            var totalPriceFormula = (price * quantity * 2) + 2 * 5;
 
-            Assert.AreEqual(totalPriceFormula, _testBasket.TotalCost);
+            Assert.AreEqual(totalPriceFormula, _testBasket.TotalCost());
         }
 
         [Test]
@@ -75,15 +75,44 @@ namespace UnitTests.ApplicationCore_Tests.Model.Basket
         [TestCase(1, 1, 99999999)]
         [TestCase(1, 0, 0)]
         [TestCase(1, 0.000000009, 0)]
-        public void Basket_RemoveAllBasketItems_Should_RemoveAllBasketItems(int productId, decimal price, int quantity)
+        public void Basket_RemoveAllBasketItems_Should_RemoveAllBasketItems_When_MethodIsExecuted(int productId, decimal price, int quantity)
         {
-            _testBasket.AddItem(productId, price, quantity);
-            _testBasket.AddItem(productId, price, quantity);
-            _testBasket.AddItem(productId, price, quantity);
-            _testBasket.AddItem(productId, price, quantity);
+            _testBasket.AddProduct(productId, price, quantity);
+            _testBasket.AddProduct(productId, price, quantity);
+            _testBasket.AddProduct(productId, price, quantity);
+            _testBasket.AddProduct(productId, price, quantity);
 
-            _testBasket.RemoveAllItems();
+            _testBasket.RemoveAllProducts();
+
             Assert.AreEqual(0, _testBasket.Items.Count);
+        }
+
+        [Test]
+        [TestCase(1, 1, 1)]
+        public void Basket_RemoveSingleItem_Should_RemoveSingleProduct_When_ItemQuantityIsLessThanTwo(int productId, decimal price, int quantity)
+        {
+            _testBasket.AddProduct(productId, price, quantity);
+
+            _testBasket.RemoveSingleProduct(productId);
+
+            Assert.AreEqual(false, _testBasket.Items.Any());
+        }
+        [Test]
+        [TestCase(1, 1, 1)]
+        public void Basket_RemoveSingleItem_Should_DecreaseProductQuantity_When_ItemQuantityIsMoreThanOne(int productId, decimal price, int quantity)
+        {
+            _testBasket.AddProduct(productId, price, quantity);
+            _testBasket.AddProduct(productId, price, quantity);
+          
+            var basketWithSingleProductWithQuantityEqualsOne =
+                new eShop_ApplicationCore.Model.Basket.Basket(BuyerId);
+            basketWithSingleProductWithQuantityEqualsOne.AddProduct(1, 1, 1);
+
+            var testProductQuantity = basketWithSingleProductWithQuantityEqualsOne.Items.First().Quantity;
+
+            _testBasket.RemoveSingleProduct(productId);
+
+            Assert.AreEqual(testProductQuantity, _testBasket.Items.First().Quantity);
         }
 
     }

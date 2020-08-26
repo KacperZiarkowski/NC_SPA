@@ -9,17 +9,17 @@ namespace eShop_ApplicationCore.Model.Order
     
     {
         public Order(
-            string customerId, 
+            Guid customerGuid, 
             List<OrderItem> orderItems, 
             Address shippingAddress)
         {
-            BuyerId = customerId;
+            BuyerGuid = customerGuid;
             _orderItems = orderItems;
             ShippingAddress = shippingAddress;
         }
 
-        [ForeignKey("BuyerId")]
-        public string BuyerId { get; private set; }
+        [ForeignKey("BuyerGuid")]
+        public Guid BuyerGuid { get; private set; }
 
         public Address ShippingAddress{ get; private set; }
 

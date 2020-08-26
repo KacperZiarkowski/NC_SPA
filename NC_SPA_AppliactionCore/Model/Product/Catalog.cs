@@ -2,20 +2,25 @@
 using System.Collections.Generic;
 using System.Text;
 using eShop_ApplicationCore.Model.Interface;
+using eShop_ApplicationCore.Model.Media;
 
 namespace eShop_ApplicationCore.Model.Product
 {
     public class Catalog : Entity, IProduct
     {
-        public string Name { get; private set; }
+        public string Name { get; set; }
 
-        public string Description { get; private set; }
+        public string Description { get; set; }
 
-        public DateTime? EffectiveFrom { get; private set; }
+        public Picture Picture { get; set; }
 
-        public DateTime? EffectiveTo { get; private set; }
+        public int PictureId { get; set; }
 
-        public decimal PriceIncrease { get; private set; }
+        public DateTime? EffectiveFrom { get; set; }
+
+        public DateTime? EffectiveTo { get; set; }
+
+        public decimal PriceIncrease { get; set; }
 
     }
 }
