@@ -22,5 +22,6 @@ namespace eShop_ApplicationCore.Model.Product
 
         public decimal PriceIncrease { get; set; }
 
+
     }
 }

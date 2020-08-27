@@ -2,11 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace eShop_ApplicationCore.Model.Order
+namespace eShop_ApplicationCore.Model.Product
 {
-    public partial class Order
+    public class Price
     {
-
-      
     }
 }
