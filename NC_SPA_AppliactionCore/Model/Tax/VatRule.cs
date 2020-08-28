@@ -4,7 +4,8 @@ using System.Text;
 
 namespace eShop_ApplicationCore.Model.Tax
 {
-    public class VatRule
+    public class VatRule : Entity
     {
+        public string RuleName { get; set; }
     }
 }

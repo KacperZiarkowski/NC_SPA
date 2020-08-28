@@ -4,7 +4,7 @@ using System.Text;
 
 namespace eShop_ApplicationCore.Model.Tax
 {
-    public class Vat
+    public class Vat : Entity
     {
         public decimal VatRate { get; set; }
 

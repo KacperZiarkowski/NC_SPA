@@ -14,12 +14,12 @@ namespace UnitTests.ApplicationCore_Tests.Model.Basket
         private static readonly Guid BuyerId = Guid.NewGuid();
 
         private eShop_ApplicationCore.Model.Basket.Basket _testBasket =
-            new eShop_ApplicationCore.Model.Basket.Basket(BuyerId);
+            new eShop_ApplicationCore.Model.Basket.Basket { BuyerGuid = BuyerId };
 
         [Test]
         public void Basket_Should_CreateNewBasket_When_BuyerIsGiven()
         {
-            var basket = new eShop_ApplicationCore.Model.Basket.Basket(BuyerId);
+            var basket = new eShop_ApplicationCore.Model.Basket.Basket { BuyerGuid = BuyerId };
 
             Assert.IsNotNull(basket);
         }
@@ -31,7 +31,7 @@ namespace UnitTests.ApplicationCore_Tests.Model.Basket
             decimal price,
             int result)
         {
-            var basket = new eShop_ApplicationCore.Model.Basket.Basket(BuyerId);
+            var basket = new eShop_ApplicationCore.Model.Basket.Basket { BuyerGuid = BuyerId };
 
             basket.AddProduct(productId, price);
 
@@ -103,9 +103,9 @@ namespace UnitTests.ApplicationCore_Tests.Model.Basket
         {
             _testBasket.AddProduct(productId, price, quantity);
             _testBasket.AddProduct(productId, price, quantity);
-          
+
             var basketWithSingleProductWithQuantityEqualsOne =
-                new eShop_ApplicationCore.Model.Basket.Basket(BuyerId);
+                new eShop_ApplicationCore.Model.Basket.Basket { BuyerGuid = BuyerId };
             basketWithSingleProductWithQuantityEqualsOne.AddProduct(1, 1, 1);
 
             var testProductQuantity = basketWithSingleProductWithQuantityEqualsOne.Items.First().Quantity;
