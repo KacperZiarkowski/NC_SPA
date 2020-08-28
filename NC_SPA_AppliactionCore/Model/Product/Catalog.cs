@@ -20,7 +20,7 @@ namespace eShop_ApplicationCore.Model.Product
 
         public DateTime? EffectiveTo { get; set; }
 
-        public decimal PriceIncrease { get; set; }
+        public decimal PriceModifier { get; set; }
 
 
     }

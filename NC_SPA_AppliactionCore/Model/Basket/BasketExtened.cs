@@ -42,13 +42,16 @@ namespace eShop_ApplicationCore.Model.Basket
         public void AddProduct(
             int productId,
             decimal price,
+            decimal vatRate = 0,
+            decimal priceModyfitier = 0,
             int quantity = 1)
         {
+            var priceFormula = Math.Round(price * (1m + vatRate) * (1m + priceModyfitier));
             if (Items.All(bi => bi.ProductId != productId))
             {
                 _items.Add(new BasketItem
                     {
-                        Price = price,
+                        Price = priceFormula,
                         ProductId = productId,
                         Quantity = quantity,
                         BasketId = this.Id

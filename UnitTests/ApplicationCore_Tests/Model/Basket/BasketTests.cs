@@ -16,6 +16,12 @@ namespace UnitTests.ApplicationCore_Tests.Model.Basket
         private eShop_ApplicationCore.Model.Basket.Basket _testBasket =
             new eShop_ApplicationCore.Model.Basket.Basket { BuyerGuid = BuyerId };
 
+        [SetUp]
+        public void SetupBeforeEachTest()
+        {
+            _testBasket.RemoveAllProducts();
+        }
+
         [Test]
         public void Basket_Should_CreateNewBasket_When_BuyerIsGiven()
         {
@@ -54,17 +60,17 @@ namespace UnitTests.ApplicationCore_Tests.Model.Basket
         }
 
         [Test]
-        [TestCase(1, 1.56, 4)]
-        public void Basket_TotalCost_Should_ReturnCorrectValue_When_ItemsAreAddedToTheBasket(
+        [TestCase(1, 1.56m, 0,0,4)]
+        public void Basket_TotalCostWithoutVAT_Should_ReturnCorrectValue_When_ItemsAreAddedToTheBasket(
             int productId,
             decimal price,
+            decimal vatRate,
+            decimal priceModifier,
             int quantity)
         {
-            _testBasket.AddProduct(productId, price, quantity);
-            _testBasket.AddProduct(productId, price, quantity);
-            _testBasket.AddProduct(2, 2, 5);
+            _testBasket.AddProduct(productId, price,vatRate, priceModifier, quantity);
 
-            var totalPriceFormula = (price * quantity * 2) + 2 * 5;
+            var totalPriceFormula = (price * (1m + vatRate) * (1 + priceModifier)) * quantity;
 
             Assert.AreEqual(totalPriceFormula, _testBasket.TotalCost());
         }
