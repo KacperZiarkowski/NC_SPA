@@ -1,4 +1,4 @@
-﻿using eShop_ApplicationCore.Model.Interface;
+﻿using eShop_ApplicationCore.Model.Interfaces;
 using System;
 using System.Collections;
 using System.Collections.Generic;

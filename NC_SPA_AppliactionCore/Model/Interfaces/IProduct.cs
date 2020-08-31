@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace eShop_ApplicationCore.Model.Interface
+namespace eShop_ApplicationCore.Model.Interfaces
 {
     public interface IProduct
     {

@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using eShop_ApplicationCore.Model.Interface;
+using eShop_ApplicationCore.Model.Interfaces;
 
 namespace eShop_ApplicationCore.Model.Media
 {

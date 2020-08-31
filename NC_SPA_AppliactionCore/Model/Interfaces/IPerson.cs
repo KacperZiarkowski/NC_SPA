@@ -1,4 +1,4 @@
-﻿namespace eShop_ApplicationCore.Model.Interface
+﻿namespace eShop_ApplicationCore.Model.Interfaces
 {
     public interface IPerson
     {

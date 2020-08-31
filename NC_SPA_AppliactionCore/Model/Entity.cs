@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using eShop_ApplicationCore.Model.Interface;
+
+using eShop_ApplicationCore.Model.Interfaces;
 
 namespace eShop_ApplicationCore.Model
 {
