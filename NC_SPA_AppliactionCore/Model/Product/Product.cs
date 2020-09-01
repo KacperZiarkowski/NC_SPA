@@ -27,8 +27,5 @@ namespace eShop_ApplicationCore.Model.Product
 
         public int PictureId { get; set; }
 
-        public string VideoUrl { get; set; }
-
-
     }
 }

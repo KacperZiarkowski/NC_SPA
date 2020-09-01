@@ -61,7 +61,7 @@ namespace UnitTests.ApplicationCore_Tests.Model.Basket
 
         [Test]
         [TestCase(1, 1.56, 4)]
-        //[TestCase(1, 1.56, 4)]
+        [TestCase(1, 1.56, 4)]
         [TestCase(2, 0.09, 4)]
         [TestCase(3, 99.99, 999999)]
         public void Basket_TotalCost_Should_ReturnCorrectValue_When_ItemsAreAddedToTheBasket(
@@ -74,7 +74,6 @@ namespace UnitTests.ApplicationCore_Tests.Model.Basket
 
             var basketCost = price * quantity;
             var calculatedBasketCost = _testBasket.TotalCost();
-
 
             Assert.AreEqual(basketCost, calculatedBasketCost);
         }
