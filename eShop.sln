@@ -11,9 +11,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{A710295B-B6A
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{16DACA2C-562F-496C-A807-E93C0FC35F95}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "eShop_ApplicationCore", "NC_SPA_AppliactionCore\eShop_ApplicationCore.csproj", "{85375E5A-4F73-4F5A-B5C0-40E0C3A24518}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "eShop_ApplicationCore", "eShop_Application Core\eShop_ApplicationCore.csproj", "{85375E5A-4F73-4F5A-B5C0-40E0C3A24518}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "eShop_Infrastructure", "NC_SPA_Infrastructure\eShop_Infrastructure.csproj", "{FA83632A-ACC0-4ED7-90B1-B72AE312053C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "eShop_Infrastructure", "eShop_Infrastructure\eShop_Infrastructure.csproj", "{FA83632A-ACC0-4ED7-90B1-B72AE312053C}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnitTests", "UnitTests\UnitTests.csproj", "{1FB7FE10-28D8-492C-A23F-557C7DF81D1A}"
 EndProject
