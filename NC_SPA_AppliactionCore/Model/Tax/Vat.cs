@@ -8,8 +8,11 @@ namespace eShop_ApplicationCore.Model.Tax
     {
         public decimal VatRate { get; set; }
 
+
         public VatRule VatRule { get; set; }
 
+
         public int VatRuleId { get; set; }
+
     }
 }

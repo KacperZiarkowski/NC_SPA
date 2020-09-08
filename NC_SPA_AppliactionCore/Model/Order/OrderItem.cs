@@ -15,10 +15,13 @@ namespace eShop_ApplicationCore.Model.Order
             Price = price;
         }
         
+
         public int Quantity { get; private set; }
+
 
         [ForeignKey("ProductId")]
         public int ProductId { get; private set; }
+
 
         public decimal Price { get; private set; }
 

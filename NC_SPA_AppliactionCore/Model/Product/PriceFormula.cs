@@ -8,20 +8,10 @@ namespace eShop_ApplicationCore.Model.Product
 {
     public class PriceFormula : IPriceCalculation
     {
-        private readonly Product _product;
-        private readonly Catalog _catalog;
-        private readonly Vat _tax;
 
-        public PriceFormula(Product product,Catalog catalog, Vat vat)
+        public decimal CalculateProductTotalCost(decimal productBasePrice, decimal vatRate, decimal catalogPriceModifier)
         {
-            _product = product;
-            _catalog = catalog;
-            _tax = vat;
-        }
-
-        public decimal CalculateProductTotalCost()
-        {
-            return Math.Round(_product.ProductBasePrice * (1m + _tax.VatRate) * (1m + _catalog.PriceModifier),3);
+            return Math.Round(Math.Round(productBasePrice * (1m + vatRate),2) * (1m + catalogPriceModifier), 2);
         }
     }
 }

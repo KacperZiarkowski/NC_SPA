@@ -6,6 +6,6 @@ namespace eShop_ApplicationCore.Model.Interfaces
 {
     public interface IPriceCalculation
     {
-        public decimal CalculateProductTotalCost();
+        public decimal CalculateProductTotalCost(decimal productBasePrice, decimal vatRate, decimal catalogPriceModifier);
     }
 }
