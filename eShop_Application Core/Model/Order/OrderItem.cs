@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.ComponentModel.DataAnnotations.Schema;
-using eShop_ApplicationCore.Model.Product;
+﻿using System.ComponentModel.DataAnnotations.Schema;
 
 namespace eShop_ApplicationCore.Model.Order
 {

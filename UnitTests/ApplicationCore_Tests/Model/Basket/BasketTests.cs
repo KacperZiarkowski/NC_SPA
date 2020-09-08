@@ -1,9 +1,5 @@
 ﻿using NUnit.Framework;
 using System;
-using System.Collections.Generic;
-using System.Text;
-using NUnit.Framework.Internal;
-using eShop_ApplicationCore.Model.Basket;
 using System.Linq;
 
 namespace UnitTests.ApplicationCore_Tests.Model.Basket

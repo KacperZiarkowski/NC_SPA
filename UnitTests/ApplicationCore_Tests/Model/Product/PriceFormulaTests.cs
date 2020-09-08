@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using eShop_ApplicationCore.Model.Product;
 using eShop_ApplicationCore.Model.Tax;
 using NUnit.Framework;

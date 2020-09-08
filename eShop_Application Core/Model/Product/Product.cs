@@ -1,8 +1,4 @@
 ﻿using eShop_ApplicationCore.Model.Interfaces;
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Text;
 using eShop_ApplicationCore.Model.Media;
 
 namespace eShop_ApplicationCore.Model.Product

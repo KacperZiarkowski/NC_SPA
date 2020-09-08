@@ -13,6 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\eShop_Application Core\eShop_ApplicationCore.csproj" />
     <ProjectReference Include="..\NC_SPA_AppliactionCore\eShop_ApplicationCore.csproj" />
   </ItemGroup>
 

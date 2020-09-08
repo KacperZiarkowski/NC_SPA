@@ -1,8 +1,5 @@
-﻿using eShop_ApplicationCore.Model.Order;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace eShop_ApplicationCore.Model.Basket
 {
