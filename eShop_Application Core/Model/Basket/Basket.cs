@@ -8,9 +8,7 @@ namespace eShop_ApplicationCore.Model.Basket
         
         public Guid BuyerGuid { get; set; }
 
-
         private readonly List<BasketItem> _items = new List<BasketItem>();
-
 
         public IReadOnlyCollection<BasketItem> Items => _items.AsReadOnly();
     }

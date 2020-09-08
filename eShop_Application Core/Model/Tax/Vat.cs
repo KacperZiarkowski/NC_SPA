@@ -4,9 +4,7 @@
     {
         public decimal VatRate { get; set; }
 
-
         public VatRule VatRule { get; set; }
-
 
         public int VatRuleId { get; set; }
 

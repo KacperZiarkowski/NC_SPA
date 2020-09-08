@@ -20,12 +20,9 @@ namespace eShop_ApplicationCore.Model.Order
         [ForeignKey("BuyerGuid")]
         public Guid BuyerGuid { get; private set; }
 
-
         public Address ShippingAddress{ get; private set; }
 
-
         private readonly List<OrderItem> _orderItems;
-
 
         public IReadOnlyCollection<OrderItem> OrderItems => _orderItems.AsReadOnly();
 

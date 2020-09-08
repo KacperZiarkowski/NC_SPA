@@ -13,14 +13,11 @@ namespace eShop_ApplicationCore.Model
 
         public string CreatedBy { get; set; }
 
-
         public DateTime? CreatedDate { get; set; }
-
 
         public DateTime? ModifiedDate { get; set; }
 
 
-        
         private static bool SetterExists(PropertyInfo propertyInfo)
         {
             return propertyInfo.SetMethod != null;
@@ -72,6 +69,5 @@ namespace eShop_ApplicationCore.Model
             }
             return this;
         }
-
     }
 }

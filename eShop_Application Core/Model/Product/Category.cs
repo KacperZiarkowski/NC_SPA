@@ -7,12 +7,9 @@ namespace eShop_ApplicationCore.Model.Product
     {
         public string Name { get;  set; }
 
-
         public string Description { get;  set; }
 
-
         public Picture Picture { get; set; }
-
 
         public int PictureId { get; set; }
     }
