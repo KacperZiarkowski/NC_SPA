@@ -11,10 +11,12 @@ namespace eShop_ApplicationCore.Model.Basket
 
         [ForeignKey("ProductId")]
         public int ProductId { get; set; }
+
         public Product.Product Product { get; set; }
 
         [ForeignKey(nameof(Basket))]
         public int BasketId { get; set; }
+
         public Basket Basket { get; set; }
 
 

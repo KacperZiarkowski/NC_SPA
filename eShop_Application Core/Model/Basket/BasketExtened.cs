@@ -2,15 +2,22 @@
 
 namespace eShop_ApplicationCore.Model.Basket
 {
+    /// <summary>
+    /// Represents a basket
+    /// </summary>
     public partial class Basket
     {
-        
+        /// <summary>
+        /// Removes all products from the basket
+        /// </summary>
         public void RemoveAllProducts()
         {
             _items.RemoveAll(bi => bi != null);
         }
 
-
+        /// <summary>
+        /// Calculate the total cost of products in the basket
+        /// </summary>
         public decimal TotalCost()
         {
             var sum = 0m;
@@ -21,7 +28,10 @@ namespace eShop_ApplicationCore.Model.Basket
             return sum;
         }
 
-
+        /// <summary>
+        /// Remove a single product from the basket
+        /// If the quantity of product is more than one, it reduces the quantity of a product by one
+        /// </summary>
         public void RemoveSingleProduct(int productId)
         {
             var existedBasketItem = Items.FirstOrDefault(bi => bi.ProductId == productId && bi.Quantity > 1);
