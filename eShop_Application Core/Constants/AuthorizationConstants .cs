@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace eShop_ApplicationCore.Constant
+﻿namespace eShop_ApplicationCore.Constants
 {
     public class AuthorizationConstants
     {

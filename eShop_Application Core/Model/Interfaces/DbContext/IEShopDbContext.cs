@@ -12,7 +12,6 @@ namespace eShop_ApplicationCore.Model.Interfaces.DbContext
 {
     public interface IEShopDbContext : IProductDbContext, IOrderDbContext, ITaxDbContext, IBasketDbContext
     {
-        Task<T> GetByIdAsync<T>(int id) where T : Entity;
 
     }
 }

@@ -31,6 +31,7 @@ namespace eShop_ApplicationCore.Model.Basket
         /// <summary>
         /// Remove a single product from the basket
         /// If the quantity of product is more than one, it reduces the quantity of a product by one
+        /// <param name="productId">Product identifier</param>
         /// </summary>
         public void RemoveSingleProduct(int productId)
         {
@@ -43,7 +44,7 @@ namespace eShop_ApplicationCore.Model.Basket
             _items.RemoveAll(bi => bi.ProductId == productId);
         }
 
-        
+      
         public void AddProduct(
             int productId,
             decimal price,
