@@ -1,5 +1,5 @@
-﻿using eShop_ApplicationCore.Model.Interfaces.DbContext;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
+using eShop_ApplicationCore.Interfaces.DbContext;
 
 namespace eShop_ApplicationCore.Services
 {

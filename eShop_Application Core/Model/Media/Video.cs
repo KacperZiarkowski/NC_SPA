@@ -1,4 +1,4 @@
-﻿using eShop_ApplicationCore.Model.Interfaces;
+﻿using eShop_ApplicationCore.Interfaces;
 
 namespace eShop_ApplicationCore.Model.Media
 {

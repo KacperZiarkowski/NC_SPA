@@ -1,14 +1,11 @@
-﻿using eShop_ApplicationCore.Model.Basket;
-using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Text;
+﻿using System.Data.Entity;
+using eShop_ApplicationCore.Model.Basket;
 
-namespace eShop_ApplicationCore.Model.Interfaces.DbContext
+namespace eShop_ApplicationCore.Interfaces.DbContext
 {
     public interface IBasketDbContext
     {
-        DbSet<Basket.Basket> Baskets { get; set; }
+        DbSet<Model.Basket.Basket> Baskets { get; set; }
 
         DbSet<BasketItem> BasketItems { get; set; }
     }

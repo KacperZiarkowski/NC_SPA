@@ -1,10 +1,7 @@
-﻿using eShop_ApplicationCore.Model.Tax;
-using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Text;
+﻿using System.Data.Entity;
+using eShop_ApplicationCore.Model.Tax;
 
-namespace eShop_ApplicationCore.Model.Interfaces.DbContext
+namespace eShop_ApplicationCore.Interfaces.DbContext
 {
     public interface ITaxDbContext
     {

@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using eShop_ApplicationCore.Interfaces.DbContext;
 using eShop_ApplicationCore.Model.Basket;
-using eShop_ApplicationCore.Model.Interfaces.DbContext;
 using NUnit.Framework;
 
 namespace UnitTests.ApplicationCore_Tests.Services.BasketService

@@ -1,6 +1,6 @@
 ﻿using eShop_ApplicationCore.Model.Media;
 
-namespace eShop_ApplicationCore.Model.Interfaces
+namespace eShop_ApplicationCore.Interfaces
 {
     public interface IProduct
     {

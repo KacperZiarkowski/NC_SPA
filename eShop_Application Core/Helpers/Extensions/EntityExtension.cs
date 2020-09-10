@@ -10,7 +10,7 @@ namespace eShop_ApplicationCore.Helpers.Extensions
 {
     public static class EntityExtension
     {
-        protected readonly _eShopContext
+        protected readonly EShopDbContext _eShopDbContext;
 
 
         Task<T> GetByIdAsync<T>(int id) where T : DbSet
