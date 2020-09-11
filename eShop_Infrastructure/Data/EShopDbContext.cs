@@ -12,6 +12,9 @@ using eShop_ApplicationCore.Model.Tax;
 
 namespace eShop_Infrastructure.Data
 {
+    /// <summary>
+    /// Application DbContext
+    /// </summary>
     class EShopDbContext : IEShopDbContext
     {
         public DbSet<Product> Products { get; set; }

@@ -10,7 +10,6 @@ namespace UnitTests.ApplicationCore_Tests.Services.BasketService
     [TestFixture]
     class BasketServiceTests
     {
-        readonly 
 
         [Test]
         public void BasketService_AddProductToBasket_Should_AddItemToExistingBasket()

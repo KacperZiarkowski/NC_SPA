@@ -2,7 +2,7 @@
 
 namespace eShop_ApplicationCore.Interfaces.DbContext
 {
-    public interface IEShopDbContext : IProductDbContext, IOrderDbContext, ITaxDbContext, IBasketDbContext, IEShopDbContextBaseAsyncOperations<Entity>
+    public interface IEShopDbContext : IProductDbContext, IOrderDbContext, ITaxDbContext, IBasketDbContext
     {
 
     }

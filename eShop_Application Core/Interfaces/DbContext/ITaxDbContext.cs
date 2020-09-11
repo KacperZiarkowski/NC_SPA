@@ -3,7 +3,7 @@ using eShop_ApplicationCore.Model.Tax;
 
 namespace eShop_ApplicationCore.Interfaces.DbContext
 {
-    public interface ITaxDbContext
+    public interface ITaxDbContext : IEShopDbContextBaseAsyncOperations
     {
         DbSet<Vat> Taxes { get; set; }
 

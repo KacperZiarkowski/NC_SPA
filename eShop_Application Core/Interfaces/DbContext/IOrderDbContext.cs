@@ -3,7 +3,7 @@ using eShop_ApplicationCore.Model.Order;
 
 namespace eShop_ApplicationCore.Interfaces.DbContext
 {
-    public interface IOrderDbContext
+    public interface IOrderDbContext : IEShopDbContextBaseAsyncOperations
     {
         DbSet<Model.Order.Order> Orders { get; set; }
 

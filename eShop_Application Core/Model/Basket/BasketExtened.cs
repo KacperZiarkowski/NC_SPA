@@ -14,6 +14,11 @@ namespace eShop_ApplicationCore.Model.Basket
         {
             _items.RemoveAll(bi => bi != null);
         }
+        public void RemoveEmptyProducts()
+        {
+            _items.RemoveAll(bi => bi.Quantity == 0);
+        }
+
 
         /// <summary>
         /// Calculate the total cost of products in the basket

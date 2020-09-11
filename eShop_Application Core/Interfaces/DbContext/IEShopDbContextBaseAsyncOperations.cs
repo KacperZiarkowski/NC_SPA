@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace eShop_ApplicationCore.Interfaces.DbContext
 {
-    public interface IEShopDbContextBaseAsyncOperations<T> where T : Entity
+    public interface IEShopDbContextBaseAsyncOperations
     {
-        Task UpdateAsync(T entity);
+        Task UpdateAsync(Entity entity);
 
-        Task DeleteAsync(T entity);
+        Task DeleteAsync(Entity entity);
 
-        Task<T> AddAsync(T entity);
+        Task<Entity> AddAsync(Entity entity);
     }
 }

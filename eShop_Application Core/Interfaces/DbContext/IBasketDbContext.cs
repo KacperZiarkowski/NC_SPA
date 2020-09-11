@@ -6,7 +6,7 @@ namespace eShop_ApplicationCore.Interfaces.DbContext
     /// <summary>
     /// Represents basket context
     /// </summary>
-    public interface IBasketDbContext
+    public interface IBasketDbContext : IEShopDbContextBaseAsyncOperations
     {
         DbSet<Model.Basket.Basket> Baskets { get; set; }
 
