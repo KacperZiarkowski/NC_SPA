@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Threading.Tasks;
 using System.Xml.Linq;
+using eShop_ApplicationCore.Interfaces;
 using eShop_ApplicationCore.Interfaces.DbContext;
 using eShop_ApplicationCore.Model.Basket;
 
 namespace eShop_ApplicationCore.Services
 {
 
-    public class BasketService
+    public class BasketService : IBasketService
     {
         private readonly IEShopDbContext _eShopDbContext;
 
@@ -18,9 +19,9 @@ namespace eShop_ApplicationCore.Services
             if (basket is null)
                 throw new ArgumentNullException(nameof(basket));
             
-
             basket.AddProduct(productId, productPrice, quantity);
-            _eShopDbContext.Baskets.Sa
+            
+            await _eShopDbContext.UpdateAsync(basket);
         }
     }
 }

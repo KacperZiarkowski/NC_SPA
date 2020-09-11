@@ -10,12 +10,11 @@ namespace UnitTests.ApplicationCore_Tests.Services.BasketService
     [TestFixture]
     class BasketServiceTests
     {
-        private readonly IEShopDbContext eShopDbContext;
 
         [Test]
         public void BasketService_AddProductToBasket_Should_AddItemToExistingBasket()
         {
-            eShopDbContext.GetByIdAsync<Basket>(0);
+           
         }
 
     }
