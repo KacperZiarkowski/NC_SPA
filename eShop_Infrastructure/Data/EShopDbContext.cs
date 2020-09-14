@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.Entity;
 using System.Text;
 using System.Threading.Tasks;
 using eShop_ApplicationCore.Interfaces.DbContext;
@@ -9,14 +8,21 @@ using eShop_ApplicationCore.Model.Basket;
 using eShop_ApplicationCore.Model.Order;
 using eShop_ApplicationCore.Model.Product;
 using eShop_ApplicationCore.Model.Tax;
+using Microsoft.EntityFrameworkCore;
 
 namespace eShop_Infrastructure.Data
 {
     /// <summary>
     /// Application DbContext
     /// </summary>
-    class EShopDbContext : IEShopDbContext
+    class EShopDbContext : DbContext, IEShopDbContext
     {
+        public EShopDbContext(DbContextOptions<EShopDbContext> options) 
+            : base(options)
+        {
+      
+        }
+
         public DbSet<Product> Products { get; set; }
         public DbSet<Catalog> Catalogs { get; set; }
         public DbSet<Category> Categories { get; set; }
@@ -26,9 +32,12 @@ namespace eShop_Infrastructure.Data
         public DbSet<VatRule> VatRules { get; set; }
         public DbSet<Basket> Baskets { get; set; }
         public DbSet<BasketItem> BasketItems { get; set; }
-        public Task UpdateAsync(Entity entity)
+        
+        
+        public async Task UpdateAsync(Entity entity)
         {
-            throw new NotImplementedException();
+            this.Entry(entity).State = EntityState.Modified;
+            await this.SaveChangesAsync();
         }
 
         public Task DeleteAsync(Entity entity)

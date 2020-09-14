@@ -1,5 +1,5 @@
-﻿using System.Data.Entity;
-using eShop_ApplicationCore.Model.Order;
+﻿using eShop_ApplicationCore.Model.Order;
+using Microsoft.EntityFrameworkCore;
 
 namespace eShop_ApplicationCore.Interfaces.DbContext
 {

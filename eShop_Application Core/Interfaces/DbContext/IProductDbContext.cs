@@ -1,4 +1,4 @@
-﻿using System.Data.Entity;
+﻿using Microsoft.EntityFrameworkCore;
 using eShop_ApplicationCore.Model.Product;
 
 namespace eShop_ApplicationCore.Interfaces.DbContext
