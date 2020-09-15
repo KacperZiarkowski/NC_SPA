@@ -14,11 +14,14 @@ namespace eShop_ApplicationCore.Model.Basket
         {
             _items.RemoveAll(bi => bi != null);
         }
+
+        /// <summary>
+        /// Removes all products with a quantity equal to zero
+        /// </summary>
         public void RemoveEmptyProducts()
         {
             _items.RemoveAll(bi => bi.Quantity == 0);
         }
-
 
         /// <summary>
         /// Calculate the total cost of products in the basket
@@ -49,7 +52,12 @@ namespace eShop_ApplicationCore.Model.Basket
             _items.RemoveAll(bi => bi.ProductId == productId);
         }
 
-      
+        /// <summary>
+        /// Adds product to an existing cart
+        /// <param name="productId">Product identifier</param>
+        /// <param name="price">Product unit price</param>
+        /// <param name="quantity">Number of products added, by default 1</param>
+        /// </summary>
         public void AddProduct(
             int productId,
             decimal price,
