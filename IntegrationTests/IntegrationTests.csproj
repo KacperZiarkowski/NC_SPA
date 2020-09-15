@@ -16,4 +16,10 @@
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.7.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\eShop_Application Core\eShop_ApplicationCore.csproj" />
+    <ProjectReference Include="..\eShop_Infrastructure\eShop_Infrastructure.csproj" />
+    <ProjectReference Include="..\UnitTests\UnitTests.csproj" />
+  </ItemGroup>
+
 </Project>
