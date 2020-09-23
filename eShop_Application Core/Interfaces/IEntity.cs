@@ -6,7 +6,7 @@ namespace eShop_ApplicationCore.Interfaces
     {
         int Id { get; set; }
 
-        string CreatedBy { get; set; }
+        string ModifiedBy { get; set; }
 
         DateTime? CreatedDate { get; set; }
 

@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Linq.Expressions;
 using System.Reflection;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using eShop_ApplicationCore.Interfaces.DbContext;
 using eShop_ApplicationCore.Model;
@@ -10,6 +13,8 @@ using eShop_ApplicationCore.Model.Order;
 using eShop_ApplicationCore.Model.Product;
 using eShop_ApplicationCore.Model.Tax;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
+
 
 namespace eShop_Infrastructure.Data
 {
@@ -18,10 +23,14 @@ namespace eShop_Infrastructure.Data
     /// </summary>
     public class EShopDbContext : DbContext, IEShopDbContext
     {
-        public EShopDbContext(DbContextOptions<EShopDbContext> options) 
+        public EShopDbContext()
+        {
+        }
+
+        public EShopDbContext(DbContextOptions<EShopDbContext> options)
             : base(options)
         {
-      
+
         }
 
         public DbSet<Product> Products { get; set; }
@@ -41,8 +50,10 @@ namespace eShop_Infrastructure.Data
         public DbSet<Basket> Baskets { get; set; }
 
         public DbSet<BasketItem> BasketItems { get; set; }
-        
-        
+
+        public string UserName { get; set; }
+
+
         public async Task UpdateAsync(Entity entity)
         {
             this.Entry(entity).State = EntityState.Modified;
@@ -59,10 +70,45 @@ namespace eShop_Infrastructure.Data
             throw new NotImplementedException();
         }
 
+
+        public override int SaveChanges()
+        {
+            IEnumerable<EntityEntry> entities = null;
+            if (ChangeTracker?.Entries() != null)
+            {
+                entities = ChangeTracker.Entries().Where(x => x.Entity is Entity && (x.State == EntityState.Added || x.State == EntityState.Modified));
+            }
+
+            var currentUsername = UserName ?? "Annonymous";
+
+            if (entities == null) return base.SaveChanges();
+
+            foreach (var entity in entities)
+            {
+                var ent = (Entity)entity.Entity;
+                if (ent == null) continue;
+
+                if (entity.State == EntityState.Added)
+                {
+                    ent.CreatedDate = DateTime.Now;
+                    ent.ModifiedBy = currentUsername;
+                }
+
+                ent.ModifiedDate = DateTime.Now;
+                ent.ModifiedBy = currentUsername;
+            }
+
+            return base.SaveChanges();
+        }
+
+        
+
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
             builder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
         }
+
     }
+
 }

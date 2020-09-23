@@ -5,6 +5,11 @@ namespace eShop_ApplicationCore.Model.Basket
 {
     public class BasketItem
     {
+        public BasketItem()
+        {
+            
+        }
+
         public decimal Price { get; set; }
 
         public int Quantity { get; set; }
