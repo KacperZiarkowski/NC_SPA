@@ -26,7 +26,7 @@ namespace eShop_Infrastructure.Data
 
         public EShopDbContext()
         {
-            
+
         }
 
         public EShopDbContext(DbContextOptions<EShopDbContext> options)
@@ -62,17 +62,20 @@ namespace eShop_Infrastructure.Data
             await SaveChangesAsync();
         }
 
-        public Task DeleteAsync(Entity entity)
+        public async Task DeleteAsync(Entity entity)
         {
-            throw new NotImplementedException();
+            Set<Entity>().Remove(entity);
+            await SaveChangesAsync();
         }
 
-        public Task<Entity> AddAsync(Entity entity)
+        public async Task<Entity> AddAsync(Entity entity)
         {
-            throw new NotImplementedException();
+            await Set<Entity>().AddAsync(entity);
+            await SaveChangesAsync();
+
+            return entity;
         }
-
-
+        
         public override int SaveChanges()
         {
             IEnumerable<EntityEntry> entities = null;
@@ -103,7 +106,7 @@ namespace eShop_Infrastructure.Data
             return base.SaveChanges();
         }
 
-        
+
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
