@@ -5,11 +5,14 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace eShop_ApplicationCore.Model.Order
 {
     public class Order : Entity
-    
     {
+        public Order()
+        {
+        }
+
         public Order(
-            Guid customerGuid, 
-            List<OrderItem> orderItems, 
+            Guid customerGuid,
+            List<OrderItem> orderItems,
             Address shippingAddress)
         {
             BuyerGuid = customerGuid;
@@ -20,7 +23,7 @@ namespace eShop_ApplicationCore.Model.Order
         [ForeignKey("BuyerGuid")]
         public Guid BuyerGuid { get; private set; }
 
-        public Address ShippingAddress{ get; private set; }
+        public Address ShippingAddress { get; private set; }
 
         private readonly List<OrderItem> _orderItems;
 

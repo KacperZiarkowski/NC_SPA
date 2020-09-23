@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace eShop_ApplicationCore.Model.Basket
 {
-    public class BasketItem
+    public class BasketItem : Entity
     {
         public BasketItem()
         {

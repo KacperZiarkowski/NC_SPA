@@ -15,7 +15,6 @@ namespace IntegrationTests.Repositories.BasketRepositoryTests
     class QuantitiesTests
     {
         private readonly EShopDbContext _eShopDbContext;
-        private readonly IBasketDbContext _basketRepository;
         private readonly BuildBasket _buildBasket = new BuildBasket();
 
         public QuantitiesTests()
@@ -24,7 +23,6 @@ namespace IntegrationTests.Repositories.BasketRepositoryTests
                 .UseInMemoryDatabase(databaseName: "eShopTest")
                 .Options;
             _eShopDbContext = new EShopDbContext(dbOptions);
-            //_basketRepository = new EfRepository<Basket>(_catalogContext);
         }
 
         [Test]
@@ -33,6 +31,8 @@ namespace IntegrationTests.Repositories.BasketRepositoryTests
             var basket = _buildBasket.EmptyBasket();
             var basketService = new BasketService(_eShopDbContext, null);
             await _eShopDbContext.Baskets.AddAsync(basket);
+           
+            basket.AddProduct(1, 1.99m);
             await _eShopDbContext.SaveChangesAsync();
 
             await basketService.SetQuantity(basket.Id, 1, 0);

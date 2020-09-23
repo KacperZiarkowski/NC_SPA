@@ -23,8 +23,10 @@ namespace eShop_Infrastructure.Data
     /// </summary>
     public class EShopDbContext : DbContext, IEShopDbContext
     {
+
         public EShopDbContext()
         {
+            
         }
 
         public EShopDbContext(DbContextOptions<EShopDbContext> options)
@@ -56,8 +58,8 @@ namespace eShop_Infrastructure.Data
 
         public async Task UpdateAsync(Entity entity)
         {
-            this.Entry(entity).State = EntityState.Modified;
-            await this.SaveChangesAsync();
+            Entry(entity).State = EntityState.Modified;
+            await SaveChangesAsync();
         }
 
         public Task DeleteAsync(Entity entity)
