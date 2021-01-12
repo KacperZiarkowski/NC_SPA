@@ -1,7 +1,11 @@
 ﻿namespace eShop_ApplicationCore.Model
 {
-    public class Address
+    public class Address : Entity
     {
+        public Address()
+        {
+            
+        }
         public Address(
             string street,
             string city,

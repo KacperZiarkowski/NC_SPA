@@ -6,7 +6,10 @@ namespace eShop_ApplicationCore.Model.Customer
 {
     public class Customer : Entity, IPerson
     {
-        
+        public Customer()
+        {
+            
+        }
         public Guid CustomerGuid { get; private set; }
 
         public Address DeliveryAddress { get; private set; }

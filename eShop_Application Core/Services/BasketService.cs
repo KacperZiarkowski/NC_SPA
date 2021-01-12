@@ -13,7 +13,7 @@ namespace eShop_ApplicationCore.Services
     {
         #region Fields
 
-        private readonly IBasketDbContext _basketDbContext;
+        private readonly IEShopDbContext _eShopDbContext;
         private readonly IAppLogger<BasketService> _appLogger;
 
         #endregion
@@ -21,10 +21,10 @@ namespace eShop_ApplicationCore.Services
         #region Ctor
 
         public BasketService(
-            IBasketDbContext basketDbContext,
+            IEShopDbContext eShopDbContext,
             IAppLogger<BasketService> appLogger)
         {
-            _basketDbContext = basketDbContext;
+            _eShopDbContext = eShopDbContext;
             _appLogger = appLogger;
         }
 
@@ -33,30 +33,30 @@ namespace eShop_ApplicationCore.Services
         #region Methods
         public async Task ClearBasket(int basketId)
         {
-            var basket = await _basketDbContext.Baskets.FindAsync(basketId);
+            var basket = await _eShopDbContext.Baskets.FindAsync(basketId);
 
             basket?.RemoveAllItems();
 
-            await _basketDbContext.UpdateAsync(basket);
+            await _eShopDbContext.UpdateAsync(basket);
         }
 
 
         public async Task AddProductToBasket(int basketId, int productId, decimal productPrice, int quantity = 1)
         {
-            var basket = await _basketDbContext.Baskets.FindAsync(basketId);
+            var basket = await _eShopDbContext.Baskets.FindAsync(basketId);
 
             if (basket is null)
                 throw new ArgumentNullException(nameof(basket));
 
             basket.AddProduct(productId, productPrice, quantity);
 
-            await _basketDbContext.UpdateAsync(basket);
+            await _eShopDbContext.UpdateAsync(basket);
         }
 
 
         public async Task SetQuantity(int basketId, int productId, int quantity)
         {
-            var basket = await _basketDbContext.Baskets.FindAsync(basketId);
+            var basket = await _eShopDbContext.Baskets.FindAsync(basketId);
 
             if (basket is null)
                 throw new ArgumentNullException(nameof(basket));
@@ -68,7 +68,7 @@ namespace eShop_ApplicationCore.Services
 
             basket.RemoveEmptyProducts();
 
-            await _basketDbContext.UpdateAsync(basket);
+            await _eShopDbContext.UpdateAsync(basket);
         }
 
         #endregion

@@ -8,6 +8,10 @@ namespace eShop_ApplicationCore.Model.Basket
     /// </summary>
     public partial class Basket : Entity
     {
+        public Basket()
+        {
+            
+        }
         /// <summary>
         /// Gets or sets a user guid which owns this basket
         /// </summary>
