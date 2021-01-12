@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using eShop_ApplicationCore.Interfaces.DbContext;
@@ -15,7 +16,7 @@ namespace eShop_Infrastructure.Data
     /// <summary>
     /// Application DbContext
     /// </summary>
-    class EShopDbContext : DbContext, IEShopDbContext
+    public class EShopDbContext : DbContext, IEShopDbContext
     {
         public EShopDbContext(DbContextOptions<EShopDbContext> options) 
             : base(options)
@@ -24,13 +25,21 @@ namespace eShop_Infrastructure.Data
         }
 
         public DbSet<Product> Products { get; set; }
+
         public DbSet<Catalog> Catalogs { get; set; }
+
         public DbSet<Category> Categories { get; set; }
+
         public DbSet<Order> Orders { get; set; }
+
         public DbSet<OrderItem> OrderItems { get; set; }
+
         public DbSet<Vat> Taxes { get; set; }
+
         public DbSet<VatRule> VatRules { get; set; }
+
         public DbSet<Basket> Baskets { get; set; }
+
         public DbSet<BasketItem> BasketItems { get; set; }
         
         
@@ -48,6 +57,12 @@ namespace eShop_Infrastructure.Data
         public Task<Entity> AddAsync(Entity entity)
         {
             throw new NotImplementedException();
+        }
+
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            base.OnModelCreating(builder);
+            builder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
         }
     }
 }

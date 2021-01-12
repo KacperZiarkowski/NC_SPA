@@ -35,7 +35,7 @@ namespace eShop_ApplicationCore.Services
         {
             var basket = await _basketDbContext.Baskets.FindAsync(basketId);
 
-            basket?.RemoveAllProducts();
+            basket?.RemoveAllItems();
 
             await _basketDbContext.UpdateAsync(basket);
         }
@@ -61,7 +61,7 @@ namespace eShop_ApplicationCore.Services
             if (basket is null)
                 throw new ArgumentNullException(nameof(basket));
             
-            var productForQuantityChange = basket.Items.First(bi => bi.ProductId == productId);
+            var productForQuantityChange = basket.Items.First(bi => bi.BasketItemId == productId);
 
             if (productForQuantityChange != null)
                 productForQuantityChange.Quantity = quantity;

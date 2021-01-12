@@ -10,7 +10,7 @@ namespace eShop_ApplicationCore.Model.Basket
         /// <summary>
         /// Removes all products from the basket
         /// </summary>
-        public void RemoveAllProducts()
+        public void RemoveAllItems()
         {
             _items.RemoveAll(bi => bi != null);
         }
@@ -18,7 +18,7 @@ namespace eShop_ApplicationCore.Model.Basket
         /// <summary>
         /// Removes all products with a quantity equal to zero
         /// </summary>
-        public void RemoveEmptyProducts()
+        public void RemoveEmptyItems()
         {
             _items.RemoveAll(bi => bi.Quantity == 0);
         }
@@ -31,7 +31,7 @@ namespace eShop_ApplicationCore.Model.Basket
             var sum = 0m;
             foreach (var item in _items)
             {
-                sum += item.Price * item.Quantity;
+                sum += item.BasePrice * item.Quantity;
             }
             return sum;
         }
@@ -39,17 +39,17 @@ namespace eShop_ApplicationCore.Model.Basket
         /// <summary>
         /// Remove a single product from the basket
         /// If the quantity of product is more than one, it reduces the quantity of a product by one
-        /// <param name="productId">Product identifier</param>
+        /// <param name="basketItemId">Basket item identifier</param>
         /// </summary>
-        public void RemoveSingleProduct(int productId)
+        public void RemoveSingleItem(int basketItemId)
         {
-            var existedBasketItem = Items.FirstOrDefault(bi => bi.ProductId == productId && bi.Quantity > 1);
+            var existedBasketItem = Items.FirstOrDefault(bi => bi.BasketItemId == basketItemId && bi.Quantity > 1);
             if (existedBasketItem != null)
             {
                 existedBasketItem.Quantity -= 1;
                 return;
             }
-            _items.RemoveAll(bi => bi.ProductId == productId);
+            _items.RemoveAll(bi => bi.BasketItemId == basketItemId);
         }
 
         /// <summary>
@@ -58,17 +58,17 @@ namespace eShop_ApplicationCore.Model.Basket
         /// <param name="price">Product unit price</param>
         /// <param name="quantity">Number of products added, by default 1</param>
         /// </summary>
-        public void AddProduct(
-            int productId,
+        public void AddItem(
+            int basketItemId,
             decimal price,
             int quantity = 1)
         {
-            if (Items.All(bi => bi.ProductId != productId))
+            if (Items.All(bi => bi.BasketItemId != basketItemId))
             {
                 _items.Add(new BasketItem
                     {
-                        Price = price,
-                        ProductId = productId,
+                        BasePrice = price,
+                        BasketItemId = basketItemId,
                         Quantity = quantity,
                         BasketId = this.Id
                     }
@@ -76,7 +76,7 @@ namespace eShop_ApplicationCore.Model.Basket
               
                 return;
             }
-            var existingItem = Items.FirstOrDefault(i => i.ProductId == productId);
+            var existingItem = Items.FirstOrDefault(i => i.BasketItemId == basketItemId);
             
             existingItem.Quantity += quantity;
         }

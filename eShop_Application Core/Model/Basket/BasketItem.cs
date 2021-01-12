@@ -5,14 +5,12 @@ namespace eShop_ApplicationCore.Model.Basket
 {
     public class BasketItem
     {
-        public decimal Price { get; set; }
+        public decimal BasePrice { get; set; }
 
         public int Quantity { get; set; }
 
-        [ForeignKey("ProductId")]
-        public int ProductId { get; set; }
-
-        public Product.Product Product { get; set; }
+        [ForeignKey("BasketItemId")]
+        public int BasketItemId { get; set; }
 
         [ForeignKey(nameof(Basket))]
         public int BasketId { get; set; }

@@ -14,7 +14,7 @@ namespace eShop_ApplicationCore.Model.Order
 
         public int Quantity { get; private set; }
 
-        [ForeignKey("ProductId")]
+        [ForeignKey("BasketItemId")]
         public int ProductId { get; private set; }
 
         public decimal Price { get; private set; }

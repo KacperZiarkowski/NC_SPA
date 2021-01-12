@@ -15,7 +15,7 @@ namespace UnitTests.ApplicationCore_Tests.Model.Basket
         [SetUp]
         public void Setup()
         {
-            _testBasket.RemoveAllProducts();
+            _testBasket.RemoveAllItems();
         }
 
         [Test]
@@ -50,7 +50,7 @@ namespace UnitTests.ApplicationCore_Tests.Model.Basket
             _testBasket.AddProduct(productId, price);
             _testBasket.AddProduct(1, 23);
 
-            var resultItem = _testBasket.Items.First(i => i.ProductId == productId);
+            var resultItem = _testBasket.Items.First(i => i.BasketItemId == productId);
 
             Assert.AreEqual(baseQuantity * 2, resultItem.Quantity);
         }
@@ -87,7 +87,7 @@ namespace UnitTests.ApplicationCore_Tests.Model.Basket
             _testBasket.AddProduct(productId, price, quantity);
             _testBasket.AddProduct(productId, price, quantity);
 
-            _testBasket.RemoveAllProducts();
+            _testBasket.RemoveAllItems();
 
             Assert.AreEqual(0, _testBasket.Items.Count);
         }
